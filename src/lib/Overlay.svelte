@@ -75,4 +75,21 @@ p {
     text-align: right;
 }
 
+/* scale the text down on tablets*/
+@media only screen and (max-width: 900px) {
+    h1 {
+        font-size: 7em;
+    }
+    p {
+        font-size: 1.5em;
+    }
+}
+@media only screen and (max-width: 600px) {
+    h1 {
+        font-size: 5em;
+    }
+    p {
+        font-size: 1em;
+    }
+}
 </style>
