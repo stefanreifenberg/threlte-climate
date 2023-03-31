@@ -111,11 +111,11 @@
 </T.PerspectiveCamera>
 
 <!-- add an ambientlight -->
-<T.AmbientLight intensity={0.7} />
+<T.AmbientLight intensity={0.7}/>
 
 <!-- add a directional light -->
-<T.DirectionalLight position={[3, 10, 10]} intensity={0.2} castShadow />
-<T.DirectionalLight position={[-3, 10, -10]} intensity={1} castShadow/>
+<T.DirectionalLight position={[3, 10, 10]} intensity={1} castShadow color={currentColor}/>
+<T.DirectionalLight position={[-3, 10, -10]} intensity={1} castShadow color={currentColor}/>
 
 <!-- create a round floor geometry -->
 <T.Mesh position={[0, -0.001, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
