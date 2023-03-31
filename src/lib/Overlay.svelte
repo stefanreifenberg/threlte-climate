@@ -78,7 +78,7 @@ p {
 /* scale the text down on tablets*/
 @media only screen and (max-width: 900px) {
     h1 {
-        font-size: 7em;
+        font-size: 5em;
     }
     p {
         font-size: 1.5em;
@@ -86,7 +86,7 @@ p {
 }
 @media only screen and (max-width: 600px) {
     h1 {
-        font-size: 5em;
+        font-size: 3em;
     }
     p {
         font-size: 1em;
