@@ -54,6 +54,10 @@
         e.object.material.color = new Color("#222");
     }
 
+    const clickEvent = (e) => {
+        // 
+    }
+
     const resetColor = (e) => {
         e.object.material.color = new Color(currentColor);
     }
@@ -63,7 +67,7 @@
 <!-- create a box geometry for every data point in data -->
 {#if data}
     {#each data as d, i}
-        <T.Mesh position={position(i,d.MEAN)}  rotation={rotation(i)} castShadow receiveShadow on:pointerenter={getTooltipData(d)} on:pointerenter={getEvent} on:pointerleave={resetColor} on:click={getTooltipData(d)} on:click={getEvent}
+        <T.Mesh position={position(i,d.MEAN)}  rotation={rotation(i)} castShadow receiveShadow on:pointerenter={getTooltipData(d)} on:pointerenter={getEvent} on:pointerleave={resetColor} on:click={getTooltipData(d)}
             >
             <T.BoxGeometry args={[0.17, 2 * d.MEAN, 0.17]} />
             <T.MeshStandardMaterial color={colorScale(d.MEAN)} />
