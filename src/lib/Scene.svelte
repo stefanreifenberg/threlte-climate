@@ -51,7 +51,7 @@
 
     const getEvent = (e) => {
         currentColor = e.object.material.color
-        e.object.material.color = new Color("#222");
+        e.object.material.color = new Color("#3f3f3f");
     }
 
     const clickEvent = (e) => {
@@ -126,5 +126,8 @@
 <style>
     .tooltip {
         width: 200px;
+    }
+    .label {
+        pointer-events: none;
     }
 </style>
