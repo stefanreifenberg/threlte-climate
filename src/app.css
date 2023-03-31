@@ -6,9 +6,6 @@
     url("/static/fonts/West/West-Bold.otf") format("otf");
 }
 
-@font-face {
-    font-family: "West";
-    font-weight: normal;
-    src: url("/static/fonts/West/West-Thin.otf") format("otf"),
-    url("/static/fonts/West/West-Thin.otf") format("otf");
+* {
+    font-family: 'West', sans-serif;
 }

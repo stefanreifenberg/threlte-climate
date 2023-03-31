@@ -122,6 +122,5 @@
 <style>
     .tooltip {
         width: 200px;
-        
     }
 </style>
