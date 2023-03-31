@@ -29,7 +29,7 @@ h1 {
     color: #222;
     font-weight: bold;
     margin: 0 0 0.05em 0;
-    font-size: 10em;
+    font-size: 6em;
     line-height: 0.85em;
 }
 .dramatic {
@@ -74,11 +74,20 @@ p {
     letter-spacing: -0.01em;
     text-align: right;
 }
+/* scale the text down on laptops*/
+@media only screen and (max-width: 1200px) {
+    h1 {
+        font-size: 6em;
+    }
+    p {
+        font-size: 1.5em;
+    }
+}
 
-/* scale the text down on tablets*/
+
 @media only screen and (max-width: 900px) {
     h1 {
-        font-size: 5em;
+        font-size: 4.5em;
     }
     p {
         font-size: 1.5em;
