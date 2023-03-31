@@ -1,0 +1,14 @@
+/* import all custom fonts */
+@font-face {
+    font-family: "West";
+    font-weight: bold;
+    src: url("/static/fonts/West/West-Bold.otf") format("otf"),
+    url("/static/fonts/West/West-Bold.otf") format("otf");
+}
+
+@font-face {
+    font-family: "West";
+    font-weight: normal;
+    src: url("/static/fonts/West/West-Thin.otf") format("otf"),
+    url("/static/fonts/West/West-Thin.otf") format("otf");
+}
