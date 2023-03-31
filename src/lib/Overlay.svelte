@@ -1,7 +1,7 @@
 <div class="Container">
     <div class="TopLeft">
         <h1>
-           THE HEAT IS ON
+           THE <span class="dramatic">HEAT</span> IS ON
         </h1>
         <p>Global Average Surface Temperature Anomalies in Degrees Celsius</p>
     </div>
@@ -32,7 +32,9 @@ h1 {
     font-size: 10em;
     line-height: 0.85em;
 }
-
+.dramatic {
+    color: #ff0000;
+}
 a {
     color: #222;
     text-decoration: none;
