@@ -1,8 +1,10 @@
 <script>
     import { T } from '@threlte/core'
-    import { OrbitControls, HTML } from '@threlte/extras'
+    import { OrbitControls, HTML, interactivity } from '@threlte/extras'
     import { autoType, csvParse, extent, scaleLinear } from 'd3';
     import { onMount } from 'svelte';
+    import { Color } from 'three'; 
+    interactivity()
 
     let data = []
 
@@ -37,13 +39,32 @@
 		load();
 	});
 
+    let Year
+    let Temperature
+    let currentColor
+
+    // onPointerEnter
+    const getTooltipData = (d) => {
+        Year = d.Year
+        Temperature = d.MEAN
+    }
+
+    const getEvent = (e) => {
+        currentColor = e.object.material.color
+        e.object.material.color = new Color("#222");
+    }
+
+    const resetColor = (e) => {
+        e.object.material.color = new Color(currentColor);
+    }
   </script>
  
 
 <!-- create a box geometry for every data point in data -->
 {#if data}
     {#each data as d, i}
-        <T.Mesh position={position(i,d.MEAN)}  rotation={rotation(i)} castShadow receiveShadow>
+        <T.Mesh position={position(i,d.MEAN)}  rotation={rotation(i)} castShadow receiveShadow on:pointerenter={getTooltipData(d)} on:pointerenter={getEvent} on:pointerleave={resetColor}
+            >
             <T.BoxGeometry args={[0.17, 2 * d.MEAN, 0.17]} />
             <T.MeshStandardMaterial color={colorScale(d.MEAN)} />
         </T.Mesh>
@@ -59,6 +80,21 @@
             </T.Mesh>
         {/if}
     {/each}
+{/if}
+
+<!-- add a tooltip that is only shown on hover -->
+{#if Year}
+<HTML position={[0, 0, 0]} >
+    <div class="tooltip">
+        <h3>{Year}</h3>
+        <h1>°C {Temperature}</h1>
+    </div>
+</HTML>
+
+<T.Mesh position={[0, Temperature, 0]} rotation={[0, 0, 0]} castShadow receiveShadow>
+    <T.BoxGeometry args={[0.17, 2 * Temperature, 0.17]} />
+    <T.MeshStandardMaterial color={colorScale(Temperature)} />
+</T.Mesh>
 {/if}
 
 
@@ -82,3 +118,10 @@
   <T.CircleGeometry args={[15, 32]} />
   <T.MeshStandardMaterial />
 </T.Mesh>
+
+<style>
+    .tooltip {
+        width: 200px;
+        
+    }
+</style>
